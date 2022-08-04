@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import './index.css';
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import LoginForm from './components/login';
+import RegisterForm from './components/register';
+import TeacherInfo from './components/teacher-info';
+import TeacherTable from './components/teacher-table';
+import AttendanceToggle from './components/attendance-toggle';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+    <Route exact path="/" element={<LoginForm />} />
+    <Route exact path="/register" element={<RegisterForm />} />
+    <Route exact path="/teacherinfo" element={<TeacherInfo />} />
+    <Route exact path="/table" element={<TeacherTable />} />
+    <Route exact path="/toggle" element={<AttendanceToggle />} />
+    </Routes> 
+    </BrowserRouter>
   );
 }
 
